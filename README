@@ -1,0 +1,362 @@
+# 📚 AI Study Material Generator
+
+An AI-powered **Study Material Generator** built with **Python, Streamlit, and Google Gemini AI**.
+
+The application allows students to upload study material in PDF format and generate useful academic content such as **study notes, 2-mark answers, 5-mark answers, 10-mark answers, MCQs, and revision notes**.
+
+---
+
+## 🚀 Features
+
+* 📄 Upload PDF study materials
+* 🤖 Generate content using Google Gemini AI
+* 📚 Generate complete study notes
+* ✍️ Generate 2-mark exam answers
+* 📝 Generate 5-mark exam answers
+* 📖 Generate detailed 10-mark exam answers
+* ❓ Generate 10 MCQs with answers and explanations
+* 🔄 Generate quick revision notes
+* 🎯 Select difficulty level:
+
+  * Beginner
+  * Intermediate
+  * Advanced
+* 📥 Download generated study material
+* 🎨 Attractive AI-themed Streamlit interface
+* 🌈 Animated background and buttons
+* 📱 Wide and student-friendly UI
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology       | Purpose                         |
+| ---------------- | ------------------------------- |
+| Python           | Application development         |
+| Streamlit        | Web application interface       |
+| Google Gemini AI | AI content generation           |
+| pypdf            | PDF text extraction             |
+| python-dotenv    | Environment variable management |
+| HTML/CSS         | UI customization                |
+
+---
+
+## 📂 Project Structure
+
+```text
+AI-Study-Material-Generator/
+│
+├── app.py
+├── .env
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/AI-Study-Material-Generator.git
+```
+
+### 2. Open the project folder
+
+```bash
+cd AI-Study-Material-Generator
+```
+
+### 3. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+## 📦 Install Dependencies
+
+Create a `requirements.txt` file containing:
+
+```text
+streamlit
+google-genai
+python-dotenv
+pypdf
+```
+
+Then install the dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+---
+
+## 🔑 Gemini API Key Setup
+
+The application requires a Gemini API key.
+
+Create a `.env` file in the project directory:
+
+```text
+GEMINI_API_KEY=your_api_key_here
+```
+
+The application reads the API key using environment variables.
+
+**Important:** Never upload your `.env` file or API key to GitHub.
+
+Add this to `.gitignore`:
+
+```text
+.env
+venv/
+__pycache__/
+```
+
+---
+
+## ▶️ Run the Application
+
+Run Streamlit using:
+
+```bash
+python -m streamlit run app.py
+```
+
+The application will open in your browser.
+
+---
+
+## 📄 How to Use
+
+### Step 1 — Enter Subject
+
+Enter the subject name.
+
+Example:
+
+```text
+DBMS
+```
+
+### Step 2 — Enter Topic
+
+Enter the topic you want to study.
+
+Example:
+
+```text
+Normalization
+```
+
+### Step 3 — Select Difficulty
+
+Choose:
+
+```text
+Beginner
+Intermediate
+Advanced
+```
+
+### Step 4 — Select Material Type
+
+Choose one of:
+
+```text
+Study Notes
+2 Mark Answer
+5 Mark Answer
+10 Mark Answer
+MCQs
+Revision Notes
+```
+
+These options are implemented in the application's sidebar settings.
+
+### Step 5 — Upload PDF
+
+Upload your study material as a PDF.
+
+The application extracts text from the uploaded PDF using `PdfReader`.
+
+### Step 6 — Generate Material
+
+Click:
+
+```text
+✨ Generate Study Material
+```
+
+Gemini processes the prompt and generates the requested material.
+
+### Step 7 — Download
+
+After generation, click:
+
+```text
+⬇️ Download Study Material
+```
+
+to save the generated content as a text file.
+
+---
+
+## 🧠 Generation Modes
+
+### 📚 Study Notes
+
+Generates:
+
+* Definition
+* Introduction
+* Important concepts
+* Detailed explanation
+* Examples
+* Advantages
+* Disadvantages
+* Applications
+* Key points
+* Conclusion
+
+### ✍️ 2-Mark Answer
+
+Provides:
+
+* Definition
+* 2–3 important points
+* Short exam-ready explanation
+
+### 📝 5-Mark Answer
+
+Provides:
+
+* Introduction
+* Main explanation
+* Example
+* Important points
+* Conclusion
+
+### 📖 10-Mark Answer
+
+Provides:
+
+* Introduction
+* Definition
+* Detailed explanation
+* Subheadings
+* Examples
+* Advantages
+* Applications
+* Conclusion
+
+### ❓ MCQs
+
+Generates:
+
+* 10 multiple-choice questions
+* Four options per question
+* Correct answer
+* One-line explanation
+
+### 🔄 Revision Notes
+
+Provides:
+
+* Important definitions
+* Formulas
+* Key concepts
+* Important differences
+* Examples
+* Exam tips
+
+These generation formats are defined in the application's prompt-generation logic.
+
+---
+
+## 🏗️ Application Workflow
+
+```text
+        ┌───────────────────┐
+        │   Student Opens   │
+        │      Website      │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Enter Subject &   │
+        │      Topic        │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Select Difficulty │
+        │ & Material Type   │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │    Upload PDF     │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Extract PDF Text  │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Create AI Prompt  │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │    Gemini AI      │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Generated Study   │
+        │     Material      │
+        └─────────┬─────────┘
+                  │
+                  ▼
+        ┌───────────────────┐
+        │ Download Material │
+        └───────────────────┘
+```
+
+---
+
+## 🎨 User Interface
+
+The application contains:
+
+* AI-themed background
+* Large title and headings
+* Sidebar study settings
+* PDF upload card
+* Animated generate button
+* Generated material card
+* Download button
+* Responsive Streamlit layout
+
+The interface styling is implemented using custom CSS inside the Streamlit application.
+
+---
+
+## 🔐 Security
+
+Do not expose your Gemini API key publicly.
+
+###
